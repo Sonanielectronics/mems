@@ -84,6 +84,9 @@ class class1 {
           }
         }
       } else {
+        fs.unlinkSync(
+            path.join(__dirname, `../../public/${req.file.filename}`)
+          );
         return res.status(HTTP.SUCCESS).send({
           errors: [
             {
