@@ -25,6 +25,7 @@ class class1 {
   };
 
   static b = async (req, res) => {
+    var ChangefilenameArray = [];
     try {
       if (
         req.body.username &&
@@ -46,6 +47,7 @@ class class1 {
           }
           const Extension = await getFileExtension(req.file.originalname);
           var Changefilename = (await req.file.filename) + "." + Extension;
+          ChangefilenameArray.push(Changefilename);
           fs.rename(
             path.join(__dirname, `../../public/${req.file.filename}`),
             path.join(__dirname, `../../public/${Changefilename}`),
@@ -97,6 +99,9 @@ class class1 {
         });
       }
     } catch (err) {
+      fs.unlinkSync(
+          path.join(__dirname, `../../public/${ChangefilenameArray[0]}`)
+        );
       return res.status(HTTP.SUCCESS).send({
         errors: [
           {
