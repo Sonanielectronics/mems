@@ -100,7 +100,7 @@ class class1 {
       return res.status(HTTP.SUCCESS).send({
         errors: [
           {
-            message: err,
+            message: "Invalid Email Address",
             code: HTTP.INTERNAL_SERVER_ERROR,
           },
         ],
