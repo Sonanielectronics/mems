@@ -81,7 +81,8 @@ class class1 {
                 Email: req.body.Email,
               });
               await data.save();
-              res.redirect("/Login");
+//               res.redirect("/Login");
+              res.send("Account Create sucessfully")
             }
           }
         }
@@ -147,7 +148,8 @@ class class1 {
             var b = a[0].username;
             session = req.session;
             session.token = b;
-            res.redirect("/upload");
+//             res.redirect("/upload");
+            res.send("Login sucessfully");
           } else {
             res.render("WrongPassword.ejs");
           }
