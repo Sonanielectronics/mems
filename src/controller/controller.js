@@ -10,7 +10,7 @@ var session;
 class class1 {
   static a = async (req, res) => {
     try {
-      res.render("Signup");
+      res.render("First");
     } catch (e) {
       console.log(err);
       return res.status(HTTP.SUCCESS).send({
@@ -25,6 +25,22 @@ class class1 {
   };
 
   static b = async (req, res) => {
+    try {
+      res.render("Signup");
+    } catch (e) {
+      console.log(err);
+      return res.status(HTTP.SUCCESS).send({
+        errors: [
+          {
+            message: "Something went wrong!",
+            code: HTTP.INTERNAL_SERVER_ERROR,
+          },
+        ],
+      });
+    }
+  };
+
+  static c = async (req, res) => {
     var ChangefilenameArray = [];
     try {
       if (
@@ -114,7 +130,7 @@ class class1 {
     }
   };
 
-  static c = async (req, res) => {
+  static d = async (req, res) => {
     try {
       res.render("login");
     } catch (e) {
@@ -130,7 +146,7 @@ class class1 {
     }
   };
 
-  static d = async (req, res) => {
+  static e = async (req, res) => {
     try {
       if (req.body.UsernameEmail && req.body.password) {
         let result = req.body.UsernameEmail.includes("@");
@@ -179,7 +195,7 @@ class class1 {
     }
   };
 
-  static e = async (req, res) => {
+  static f = async (req, res) => {
     try {
       if (req.session.token) {
         res.send("Okay");
@@ -201,7 +217,7 @@ class class1 {
     }
   };
 
-  static f = async (req, res) => {
+  static g = async (req, res) => {
     try {
       if (req.session.token) {
         function getFileExtension(filename) {
@@ -281,7 +297,7 @@ class class1 {
     }
   };
 
-  static g = async (req, res) => {
+  static h = async (req, res) => {
     try {
       if (req.session.token) {
         if (req.session.token == "admin") {
@@ -306,9 +322,9 @@ class class1 {
     }
   };
 
-  static h = async (req, res) => {
+  static i = async (req, res) => {
     try {
-      var ipAddress = "54.206.72.7";
+      var ipAddress = "13.211.65.78";
 
       if (req.params.id == "adultphotopost") {
         var a = await Todo.find({ username: req.session.token });
@@ -448,7 +464,7 @@ class class1 {
     }
   };
 
-  static i = async (req, res) => {
+  static j = async (req, res) => {
     try {
       if (req.session.token) {
         if (req.session.token == "admin") {
@@ -510,7 +526,7 @@ class class1 {
     }
   };
 
-  static j = async (req, res) => {
+  static k = async (req, res) => {
     try {
       if (req.session.token) {
         if (req.session.token == "admin") {
